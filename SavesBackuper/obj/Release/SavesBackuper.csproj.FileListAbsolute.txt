@@ -1,0 +1,14 @@
+D:\Projects\vs\SavesBackuper\SavesBackuper\bin\Release\SavesBackuper.exe.config
+D:\Projects\vs\SavesBackuper\SavesBackuper\bin\Release\SavesBackuper.exe
+D:\Projects\vs\SavesBackuper\SavesBackuper\bin\Release\SavesBackuper.pdb
+D:\Projects\vs\SavesBackuper\SavesBackuper\bin\Release\Newtonsoft.Json.dll
+D:\Projects\vs\SavesBackuper\SavesBackuper\bin\Release\Newtonsoft.Json.xml
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.csprojAssemblyReference.cache
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.InputDialog.resources
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.MainForm.resources
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.Properties.Resources.resources
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.csproj.GenerateResource.cache
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.csproj.CoreCompileInputs.cache
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.csproj.CopyComplete
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.exe
+D:\Projects\vs\SavesBackuper\SavesBackuper\obj\Release\SavesBackuper.pdb
