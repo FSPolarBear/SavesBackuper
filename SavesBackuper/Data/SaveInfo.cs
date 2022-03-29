@@ -126,39 +126,49 @@ namespace SavesBackuper
         private static readonly string DOCUMENTS_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         /// <summary>
-        /// 获取当前对象的存档文件完整路径。
-        /// 本函数处理路径中的环境变量、我的文档、可变路径等
+        /// 获取当前对象的存档目录
         /// </summary>
-        /// <returns>存档文件的完整路径</returns>
-        public string GetFileName()
-        {
 
-            string filename = this.Directory;
+        /// <returns>存档所在目录</returns>
+        /// version 1.1.0
+        public string GetDirectory()
+        {
+            string directory = this.Directory;
 
             //将"?doc?"替换为我的文档
-            //filename = Regex.Replace(filename, @"%doc%", DOCUMENTS_PATH, RegexOptions.IgnoreCase);
-            filename = filename.Replace(@"?doc?", DOCUMENTS_PATH);
+            directory = directory.Replace(@"?doc?", DOCUMENTS_PATH);
 
             //将两个%中间的内容替换为环境变量的路径。如%appdata%等
             Regex r = new Regex("%.*?%");
-            MatchCollection mc = r.Matches(filename);
+            MatchCollection mc = r.Matches(directory);
             foreach (Match m in mc)
             {
                 string v = m.Value;
-                filename = filename.Replace(v, Environment.GetEnvironmentVariable(v.Substring(1, v.Length - 2)));
+                directory = directory.Replace(v, Environment.GetEnvironmentVariable(v.Substring(1, v.Length - 2)));
             }
 
             //如果使用可变路径，将"??"替换为可变路径
             if (this.UseChangeableDirectory)
             {
-                filename = filename.Replace("??", this.ChangeableDirectory);
+                directory = directory.Replace("??", this.ChangeableDirectory);
             }
+            return directory;
+        }
 
-
-            filename += @"\" + this.SaveName[this.SaveNameIndex];
-
+        /// <summary>
+        /// 获取当前对象的存档文件完整路径。
+        /// 本函数处理路径中的环境变量、我的文档、可变路径等
+        /// </summary>
+        /// <returns>存档文件的完整路径</returns>
+        /// version 1.1.0
+        public string GetFileName()
+        {
+            string directory = GetDirectory();
+            string filename = directory +  @"\" + this.SaveName[this.SaveNameIndex];
             return filename;
         }
+
+
 
     }
 }

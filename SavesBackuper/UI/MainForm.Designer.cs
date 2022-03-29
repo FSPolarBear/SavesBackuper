@@ -33,7 +33,7 @@ namespace SavesBackuper
             this.tableLayoutPanel_Restore = new System.Windows.Forms.TableLayoutPanel();
             this.button_Restore_Default = new System.Windows.Forms.Button();
             this.button_Restore_Custom = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_SaveName = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_label_SaveName = new System.Windows.Forms.TextBox();
             this.comboBox_SaveName = new System.Windows.Forms.ComboBox();
             this.button_SaveName_Add = new System.Windows.Forms.Button();
@@ -56,9 +56,11 @@ namespace SavesBackuper
             this.button_Backup_Default = new System.Windows.Forms.Button();
             this.button_Backup_Custom = new System.Windows.Forms.Button();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.button_Backup_Batch_Default = new System.Windows.Forms.Button();
+            this.button_Restore_Batch_Default = new System.Windows.Forms.Button();
             this.tableLayoutPanel_main.SuspendLayout();
             this.tableLayoutPanel_Restore.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel_SaveName.SuspendLayout();
             this.tableLayoutPanel_SaveInfo.SuspendLayout();
             this.tableLayoutPanel_Directory.SuspendLayout();
             this.tableLayoutPanel_ChangeableDirectory.SuspendLayout();
@@ -71,7 +73,7 @@ namespace SavesBackuper
             this.tableLayoutPanel_main.ColumnCount = 1;
             this.tableLayoutPanel_main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_Restore, 0, 6);
-            this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel1, 0, 4);
+            this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_SaveName, 0, 4);
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_SaveInfo, 0, 1);
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_Directory, 0, 2);
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_ChangeableDirectory, 0, 3);
@@ -92,17 +94,19 @@ namespace SavesBackuper
             // 
             // tableLayoutPanel_Restore
             // 
-            this.tableLayoutPanel_Restore.ColumnCount = 2;
-            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_Restore.ColumnCount = 3;
+            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Restore.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_Restore.Controls.Add(this.button_Restore_Default, 0, 0);
             this.tableLayoutPanel_Restore.Controls.Add(this.button_Restore_Custom, 1, 0);
+            this.tableLayoutPanel_Restore.Controls.Add(this.button_Restore_Batch_Default, 2, 0);
             this.tableLayoutPanel_Restore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Restore.Location = new System.Drawing.Point(3, 459);
             this.tableLayoutPanel_Restore.Name = "tableLayoutPanel_Restore";
             this.tableLayoutPanel_Restore.RowCount = 1;
             this.tableLayoutPanel_Restore.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Restore.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel_Restore.Size = new System.Drawing.Size(754, 75);
             this.tableLayoutPanel_Restore.TabIndex = 5;
             // 
@@ -111,7 +115,7 @@ namespace SavesBackuper
             this.button_Restore_Default.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_Restore_Default.Location = new System.Drawing.Point(3, 3);
             this.button_Restore_Default.Name = "button_Restore_Default";
-            this.button_Restore_Default.Size = new System.Drawing.Size(371, 69);
+            this.button_Restore_Default.Size = new System.Drawing.Size(245, 69);
             this.button_Restore_Default.TabIndex = 0;
             this.button_Restore_Default.Text = "button3";
             this.button_Restore_Default.UseVisualStyleBackColor = true;
@@ -120,32 +124,32 @@ namespace SavesBackuper
             // button_Restore_Custom
             // 
             this.button_Restore_Custom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_Restore_Custom.Location = new System.Drawing.Point(380, 3);
+            this.button_Restore_Custom.Location = new System.Drawing.Point(254, 3);
             this.button_Restore_Custom.Name = "button_Restore_Custom";
-            this.button_Restore_Custom.Size = new System.Drawing.Size(371, 69);
+            this.button_Restore_Custom.Size = new System.Drawing.Size(245, 69);
             this.button_Restore_Custom.TabIndex = 1;
             this.button_Restore_Custom.Text = "button4";
             this.button_Restore_Custom.UseVisualStyleBackColor = true;
             this.button_Restore_Custom.Click += new System.EventHandler(this.button_Restore_Custom_Click);
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel_SaveName
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox_label_SaveName, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox_SaveName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_SaveName_Add, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_SaveName_Delete, 3, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 307);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(754, 70);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel_SaveName.ColumnCount = 4;
+            this.tableLayoutPanel_SaveName.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel_SaveName.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel_SaveName.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel_SaveName.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel_SaveName.Controls.Add(this.textBox_label_SaveName, 0, 0);
+            this.tableLayoutPanel_SaveName.Controls.Add(this.comboBox_SaveName, 1, 0);
+            this.tableLayoutPanel_SaveName.Controls.Add(this.button_SaveName_Add, 2, 0);
+            this.tableLayoutPanel_SaveName.Controls.Add(this.button_SaveName_Delete, 3, 0);
+            this.tableLayoutPanel_SaveName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_SaveName.Location = new System.Drawing.Point(3, 307);
+            this.tableLayoutPanel_SaveName.Name = "tableLayoutPanel_SaveName";
+            this.tableLayoutPanel_SaveName.RowCount = 1;
+            this.tableLayoutPanel_SaveName.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_SaveName.Size = new System.Drawing.Size(754, 70);
+            this.tableLayoutPanel_SaveName.TabIndex = 3;
             // 
             // textBox_label_SaveName
             // 
@@ -375,17 +379,19 @@ namespace SavesBackuper
             // 
             // tableLayoutPanel_Backup
             // 
-            this.tableLayoutPanel_Backup.ColumnCount = 2;
-            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_Backup.ColumnCount = 3;
+            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Backup.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_Backup.Controls.Add(this.button_Backup_Default, 0, 0);
             this.tableLayoutPanel_Backup.Controls.Add(this.button_Backup_Custom, 1, 0);
+            this.tableLayoutPanel_Backup.Controls.Add(this.button_Backup_Batch_Default, 2, 0);
             this.tableLayoutPanel_Backup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Backup.Location = new System.Drawing.Point(3, 383);
             this.tableLayoutPanel_Backup.Name = "tableLayoutPanel_Backup";
             this.tableLayoutPanel_Backup.RowCount = 1;
             this.tableLayoutPanel_Backup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Backup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel_Backup.Size = new System.Drawing.Size(754, 70);
             this.tableLayoutPanel_Backup.TabIndex = 4;
             // 
@@ -394,7 +400,7 @@ namespace SavesBackuper
             this.button_Backup_Default.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_Backup_Default.Location = new System.Drawing.Point(3, 3);
             this.button_Backup_Default.Name = "button_Backup_Default";
-            this.button_Backup_Default.Size = new System.Drawing.Size(371, 64);
+            this.button_Backup_Default.Size = new System.Drawing.Size(245, 64);
             this.button_Backup_Default.TabIndex = 0;
             this.button_Backup_Default.Text = "button1";
             this.button_Backup_Default.UseVisualStyleBackColor = true;
@@ -403,9 +409,9 @@ namespace SavesBackuper
             // button_Backup_Custom
             // 
             this.button_Backup_Custom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_Backup_Custom.Location = new System.Drawing.Point(380, 3);
+            this.button_Backup_Custom.Location = new System.Drawing.Point(254, 3);
             this.button_Backup_Custom.Name = "button_Backup_Custom";
-            this.button_Backup_Custom.Size = new System.Drawing.Size(371, 64);
+            this.button_Backup_Custom.Size = new System.Drawing.Size(245, 64);
             this.button_Backup_Custom.TabIndex = 1;
             this.button_Backup_Custom.Text = "button2";
             this.button_Backup_Custom.UseVisualStyleBackColor = true;
@@ -422,6 +428,28 @@ namespace SavesBackuper
             this.panel_main.Size = new System.Drawing.Size(760, 537);
             this.panel_main.TabIndex = 0;
             // 
+            // button_Backup_Batch_Default
+            // 
+            this.button_Backup_Batch_Default.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Backup_Batch_Default.Location = new System.Drawing.Point(505, 3);
+            this.button_Backup_Batch_Default.Name = "button_Backup_Batch_Default";
+            this.button_Backup_Batch_Default.Size = new System.Drawing.Size(246, 64);
+            this.button_Backup_Batch_Default.TabIndex = 2;
+            this.button_Backup_Batch_Default.Text = "button1";
+            this.button_Backup_Batch_Default.UseVisualStyleBackColor = true;
+            this.button_Backup_Batch_Default.Click += new System.EventHandler(this.button_Backup_Batch_Default_Click);
+            // 
+            // button_Restore_Batch_Default
+            // 
+            this.button_Restore_Batch_Default.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Restore_Batch_Default.Location = new System.Drawing.Point(505, 3);
+            this.button_Restore_Batch_Default.Name = "button_Restore_Batch_Default";
+            this.button_Restore_Batch_Default.Size = new System.Drawing.Size(246, 69);
+            this.button_Restore_Batch_Default.TabIndex = 2;
+            this.button_Restore_Batch_Default.Text = "button3";
+            this.button_Restore_Batch_Default.UseVisualStyleBackColor = true;
+            this.button_Restore_Batch_Default.Click += new System.EventHandler(this.button_Restore_Batch_Default_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -433,8 +461,8 @@ namespace SavesBackuper
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel_main.ResumeLayout(false);
             this.tableLayoutPanel_Restore.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel_SaveName.ResumeLayout(false);
+            this.tableLayoutPanel_SaveName.PerformLayout();
             this.tableLayoutPanel_SaveInfo.ResumeLayout(false);
             this.tableLayoutPanel_SaveInfo.PerformLayout();
             this.tableLayoutPanel_Directory.ResumeLayout(false);
@@ -464,7 +492,7 @@ namespace SavesBackuper
         private System.Windows.Forms.CheckBox checkBox_UseChangeableDirectory;
         private System.Windows.Forms.TextBox textBox_label_ChangeableDirectory;
         private System.Windows.Forms.TextBox textBox_ChangeableDirectory;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SaveName;
         private System.Windows.Forms.TextBox textBox_label_SaveName;
         private System.Windows.Forms.ComboBox comboBox_SaveName;
         private System.Windows.Forms.Button button_SaveName_Add;
@@ -476,5 +504,7 @@ namespace SavesBackuper
         private System.Windows.Forms.Button button_Restore_Custom;
         private System.Windows.Forms.Button button_Backup_Default;
         private System.Windows.Forms.Button button_Backup_Custom;
+        private System.Windows.Forms.Button button_Restore_Batch_Default;
+        private System.Windows.Forms.Button button_Backup_Batch_Default;
     }
 }

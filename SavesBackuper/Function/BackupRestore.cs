@@ -10,7 +10,7 @@ namespace SavesBackuper{
     /// <summary>
     /// 备份和恢复
     /// </summary>
-    class BackupRestore
+    static class BackupRestore
     {
         
 
@@ -116,6 +116,44 @@ namespace SavesBackuper{
 
             string backup = string.Format(DEFAULT_BACKUP_FILE_FORMAT, info.GameName, info.SaveName[info.SaveNameIndex]);
             return Restore(info, backup);
+        }
+
+
+        /// <summary>
+        /// 将所有存档名的存档备份至默认位置
+        /// </summary>
+        /// <param name="info">要备份的存档信息</param>
+        /// <returns>每个存档是否备份成功</returns>
+        public static bool[] DefaultBackupBatch(SaveInfo info)
+        {
+            bool[] succeed = new bool[info.SaveName.Count];
+
+            SaveInfo saveinfo = new SaveInfo(info);
+
+            for (int i = 0; i < succeed.Length; i++)
+            {
+                saveinfo.SaveNameIndex = i;
+                succeed[i] = DefaultBackup(saveinfo);
+            }
+            return succeed;
+        }
+
+
+        /// <summary>
+        /// 从默认位置恢复所有存档名的存档
+        /// </summary>
+        /// <param name="info">要还原的存档信息</param>
+        /// <returns>每个存档是否还原成功</returns>
+        public static bool[] DefaultRestoreBatch(SaveInfo info)
+        {
+            bool[] succeed = new bool[info.SaveName.Count];
+            SaveInfo saveinfo = new SaveInfo(info);
+            for(int i = 0; i < succeed.Length; i++)
+            {
+                saveinfo.SaveNameIndex=i;
+                succeed[i] = DefaultRestore(saveinfo);
+            }
+            return succeed;
         }
 
 

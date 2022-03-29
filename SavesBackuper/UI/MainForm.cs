@@ -47,6 +47,7 @@ namespace SavesBackuper
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// version 1.1.0
         private void MainForm_Load(object sender, EventArgs e)
         {
             //加载显示的字符串
@@ -63,8 +64,10 @@ namespace SavesBackuper
             button_SaveName_Delete.Text = Texts.BUTTON_SAVENAME_DELETE;
             button_Backup_Default.Text = Texts.BUTTON_BACKUP_DEFAULT;
             button_Backup_Custom.Text = Texts.BUTTON_BACKUP_CUSTOM;
+            button_Backup_Batch_Default.Text= Texts.BUTTON_BACKUP_BATCH_DEFAULT;
             button_Restore_Default.Text = Texts.BUTTON_RESTORE_DEFAULT;
             button_Restore_Custom.Text = Texts.BUTTON_RESTORE_CUSTOM;
+            button_Restore_Batch_Default.Text = Texts.BUTTON_RESTORE_BATCH_DEFAULT;
             checkBox_UseChangeableDirectory.Text = Texts.CHECKBOX_USECHANGEABLEDIRECTORY;
 
             //加载信息
@@ -439,6 +442,124 @@ namespace SavesBackuper
                 MessageBox.Show(Texts.MESSAGE_CHOOSE_DIRECTORY_OR_FILE_FAILED);
             }
             
+        }
+
+
+        /// <summary>
+        /// 批量备份至默认位置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// version 1.1.0
+        private void button_Backup_Batch_Default_Click(object sender, EventArgs e)
+        {
+            //如无存档名，按钮不生效。
+            if (!enable)
+                return;
+            if (info.SaveNameIndex < 0 || info.SaveNameIndex >= info.SaveName.Count)
+                return;
+
+            try
+            {
+                if(MessageBox.Show(Texts.MESSAGE_BACKUP_BATCH_DEFAULT, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    bool[] succeed = BackupRestore.DefaultBackupBatch(info);
+                    int numFailed = 0;//失败的数量
+                    string failSaves = "";  //失败的文件名，多个文件使用顿号隔开
+                    for(int i = 0; i < succeed.Length; i++)
+                    {
+                        if(!succeed[i])
+                        {
+                            if(numFailed > 0)
+                            {
+                                failSaves += Texts.COMMA;
+                            }
+                            failSaves += info.SaveName[i];
+                            numFailed++;
+                        }
+                    }
+                    //全部成功
+                    if(numFailed == 0)
+                    {
+                        MessageBox.Show(Texts.MESSAGE_BACKUP_BATCH_ALL_SUCCEED);
+                    }
+                    //全部失败
+                    else if(numFailed == succeed.Length)
+                    {    
+                        MessageBox.Show(Texts.MESSAGE_BACKUP_BATCH_ALL_FAILED);
+                    }
+                    //部分成功
+                    else
+                    {
+                        MessageBox.Show(string.Format(Texts.MESSAGE_BACKUP_BATCH_PART_SUCCEED_FORMAT, succeed.Length, succeed.Length - numFailed, failSaves));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Texts.MESSAGE_BACKUP_BATCH_ERROR);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// 从默认位置批量恢复
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// version 1.1.0
+        private void button_Restore_Batch_Default_Click(object sender, EventArgs e)
+        {
+            //如无存档名，按钮不生效。
+            if (!enable)
+                return;
+            if (info.SaveNameIndex < 0 || info.SaveNameIndex >= info.SaveName.Count)
+                return;
+
+            try
+            {
+                if (MessageBox.Show(Texts.MESSAGE_RESTORE_BATCH_DEFAULT, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    bool[] succeed = BackupRestore.DefaultRestoreBatch(info);
+                    int numFailed = 0;//失败的数量
+                    string failSaves = "";  //失败的文件名，多个文件使用顿号隔开
+                    for (int i = 0; i < succeed.Length; i++)
+                    {
+                        if (!succeed[i])
+                        {
+                            if (numFailed > 0)
+                            {
+                                failSaves += Texts.COMMA;
+                            }
+                            failSaves += info.SaveName[i];
+                            numFailed++;
+                        }
+                    }
+                    //全部成功
+                    if (numFailed == 0)
+                    {
+                        MessageBox.Show(Texts.MESSAGE_RESTORE_BATCH_ALL_SUCCEED);
+                    }
+                    //全部失败
+                    else if (numFailed == succeed.Length)
+                    {
+                        MessageBox.Show(Texts.MESSAGE_RESTORE_BATCH_ALL_FAILED);
+                    }
+                    //部分成功
+                    else
+                    {
+                        MessageBox.Show(string.Format(Texts.MESSAGE_RESTORE_BATCH_PART_SUCCEED_FORMAT, succeed.Length, succeed.Length - numFailed, failSaves));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Texts.MESSAGE_RESTORE_BATCH_ERROR);
+            }
         }
     }
 }
